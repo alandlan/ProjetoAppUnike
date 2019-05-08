@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "enable-kvm": "sudo chown reactnative:reactnative -R /dev/kvm"
   },
   "dependencies": {
     "react": "16.8.3",
