@@ -7,7 +7,8 @@
     "test": "jest",
     "enable-kvm": "sudo chown reactnative:reactnative -R /dev/kvm",
     "device": "emulator -avd Nexus_5X_API_28_x86",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios"
   },
   "dependencies": {
     "react": "16.8.3",
