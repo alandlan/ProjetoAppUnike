@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "enable-kvm": "sudo chown reactnative:reactnative -R /dev/kvm"
+    "enable-kvm": "sudo chown reactnative:reactnative -R /dev/kvm",
+    "device": "emulator -avd Nexus_5X_API_28_x86",
+    "android": "react-native run-android"
   },
   "dependencies": {
     "react": "16.8.3",
