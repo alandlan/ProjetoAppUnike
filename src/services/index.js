@@ -1,1 +1,1 @@
-export * as default from './logon';
+export * from './logon';

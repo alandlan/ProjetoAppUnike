@@ -1,17 +1,18 @@
 import http from '../http';
 
 const LogonService = {
-  get: params =>
+  signIn: ({ email, password }) =>
     new Promise((resolve, reject) => {
       http
-        .get('/Profissional/Login', { params })
+        .get('/Profissional/Login', { params: { email, senha: password } })
         .then(response => {
           resolve(response);
         })
         .catch(err => {
           reject(err);
         });
-    })
+    }),
+  signOut: () => {}
 };
 
-export default LogonService;
+export { LogonService };
