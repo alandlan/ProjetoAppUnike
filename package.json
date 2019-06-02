@@ -3,26 +3,71 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "flow": "flow",
+    "flow-stop": "flow stop",
+    "precommit": "lint-staged && yarn test --passWithNoTests",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
+    "test:unit": "jest",
+    "test": "yarn lint && yarn flow && jest",
     "enable-kvm": "sudo chown reactnative:reactnative -R /dev/kvm",
     "device": "emulator -avd Nexus_5X_API_28_x86",
     "android": "react-native run-android",
-    "ios": "react-native run-ios"
+    "ios": "react-native run-ios",
+    "lint": "eslint src",
+    "pretty": "prettier --write \"src/**/*.js\"",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn pretty",
+      "git add"
+    ]
   },
   "dependencies": {
+    "axios": "^0.19.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
+    "enzyme-to-json": "^3.3.5",
+    "native-base": "^2.12.1",
     "react": "16.8.3",
-    "react-native": "0.59.8"
+    "react-native": "0.59.8",
+    "react-native-elements": "^1.1.0",
+    "react-native-gesture-handler": "^1.2.1",
+    "react-native-vector-icons": "^6.4.2",
+    "react-navigation": "^3.10.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/runtime": "^7.4.4",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^3.9.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "flow-bin": "0.92.0",
+    "husky": "^2.3.0",
     "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
     "metro-react-native-babel-preset": "^0.54.0",
+    "prettier": "^1.17.1",
+    "react-dom": "^16.8.6",
     "react-test-renderer": "16.8.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testMatch": [
+      "**/?(*.)test.js?(x)"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest/setup.js"
+    ]
   }
 }
