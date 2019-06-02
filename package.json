@@ -15,7 +15,9 @@
     "ios": "react-native run-ios",
     "lint": "eslint src",
     "pretty": "prettier --write \"src/**/*.js\"",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "debugger": "react-devtools",
+    "log-android": "react-native log-android"
   },
   "lint-staged": {
     "*.js": [
@@ -24,6 +26,7 @@
     ]
   },
   "dependencies": {
+    "Base64": "^1.0.2",
     "axios": "^0.19.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
@@ -55,6 +58,7 @@
     "lint-staged": "^8.1.7",
     "metro-react-native-babel-preset": "^0.54.0",
     "prettier": "^1.17.1",
+    "react-devtools": "^3.6.1",
     "react-dom": "^16.8.6",
     "react-test-renderer": "16.8.3"
   },

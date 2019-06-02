@@ -1,23 +1,6 @@
-import { createAppContainer, createStackNavigator } from 'react-navigation';
-import { HomePage, LoginPage } from '../../pages/index';
+import { createAppContainer } from 'react-navigation';
+import { StackNavigator } from './navigator';
 
-const AppNavigator = createStackNavigator(
-  {
-    Home: {
-      screen: HomePage,
-      navigationOptions: {
-        title: 'sdfsdfsdfsdf'
-      }
-    },
-    Login: {
-      screen: LoginPage
-    }
-  },
-  {
-    initialRouteName: 'Login'
-  }
-);
+const Routes = createAppContainer(StackNavigator);
 
-const Routes = createAppContainer(AppNavigator);
-
-export { Routes };
+export { Routes, StackNavigator };

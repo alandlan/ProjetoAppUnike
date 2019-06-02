@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
-// import logoImage from './images/login.jpg';
 
 const style = StyleSheet.create({
-  container: {}
+  header: {
+    flex: 1
+  }
 });
 
-export { style };
+export default style;
