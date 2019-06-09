@@ -1,30 +1,26 @@
-import { createStackNavigator } from 'react-navigation';
-import { HomePage, LoginPage, LogoutPage } from '../../pages';
+import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+import { HomePage, LoginPage, LogoutPage, LoadingPage } from '../../pages';
 
-const StackNavigator = createStackNavigator(
-  {
-    Home: {
-      screen: HomePage,
-      navigationOptions: {
-        title: 'Home Page'
-      }
-    },
-    Login: {
-      screen: LoginPage,
-      navigationOptions: {
-        title: 'Login',
-        header: null
-      }
-    },
-    Logout: {
-      screen: LogoutPage,
-      navigationOptions: {
-        title: 'Logout'
-      }
+const AppStackNavigator = createStackNavigator({
+  Home: HomePage
+});
+const AuthStackNavigator = createStackNavigator({
+  Login: {
+    screen: LoginPage,
+    navigationOptions: {
+      header: null
     }
+  }
+});
+
+const SwitchNavigator = createSwitchNavigator(
+  {
+    AuthLoading: LoadingPage,
+    App: AppStackNavigator,
+    Auth: AuthStackNavigator
   },
   {
-    initialRouteName: 'Login'
+    initialRouteName: 'AuthLoading'
   }
 );
-export { StackNavigator };
+export { SwitchNavigator };

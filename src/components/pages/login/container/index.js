@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
 import { LogonService } from '../../../../services';
 import LoginPagePresentation from '../presentation';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const LoginPage = props => {
   const [form, setForm] = useState({
     email: '1@teste.com.br',
     password: 'ale123'
   });
+  const [load, setLoad] = useState(false);
 
-  function handleLogin() {
-    LogonService.signIn(form)
-      .then(() => {
-        props.navigation.navigate('Home');
-      })
-      .catch(err => {
-        setForm({
-          ...form,
-          err: err.message
-        });
+  async function handleLogin() {
+    setLoad(true);
+    try {
+      const response = await LogonService.signIn(form);
+      await AsyncStorage.setItem('unikeToken', response.token || 'testeToken');
+      props.navigation.navigate('App');
+    } catch (err) {
+      setForm({
+        ...form,
+        error: {
+          message: err.message
+        }
       });
+    }
   }
 
   function handleChange(element) {
@@ -29,7 +34,15 @@ const LoginPage = props => {
       });
     };
   }
-  return <LoginPagePresentation value={form} onChange={handleChange} onLogin={handleLogin} />;
+  return (
+    <LoginPagePresentation
+      error={form.error}
+      load={load}
+      value={form}
+      onChange={handleChange}
+      onLogin={handleLogin}
+    />
+  );
 };
 
 export { LoginPage };

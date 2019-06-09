@@ -1,6 +1,6 @@
 import { createAppContainer } from 'react-navigation';
-import { StackNavigator } from './navigator';
+import { SwitchNavigator } from './navigator';
 
-const Routes = createAppContainer(StackNavigator);
+const Routes = createAppContainer(SwitchNavigator);
 
-export { Routes, StackNavigator };
+export { Routes };
