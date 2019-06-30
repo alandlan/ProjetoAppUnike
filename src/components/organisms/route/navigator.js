@@ -1,5 +1,12 @@
 import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
-import { HomePage, LoginPage, LogoutPage, LoadingPage, SignupPageOne } from '../../pages';
+import {
+  HomePage,
+  LoginPage,
+  LogoutPage,
+  LoadingPage,
+  SignupPageOne,
+  SignupPageTwo
+} from '../../pages';
 
 const AppStackNavigator = createStackNavigator({
   Home: HomePage
@@ -20,13 +27,22 @@ const SignupStackNavigator = createStackNavigator({
     }
   }
 });
+const SignupTwoStackNavigator = createStackNavigator({
+  SignupTwo: {
+    screen: SignupPageTwo,
+    navigationOptions: {
+      header: null
+    }
+  }
+});
 
 const SwitchNavigator = createSwitchNavigator(
   {
     AuthLoading: LoadingPage,
     App: AppStackNavigator,
     Auth: AuthStackNavigator,
-    Signup: SignupStackNavigator
+    Signup: SignupStackNavigator,
+    SignupTwo: SignupTwoStackNavigator
   },
   {
     initialRouteName: 'AuthLoading'

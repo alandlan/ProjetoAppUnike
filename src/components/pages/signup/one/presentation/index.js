@@ -1,57 +1,24 @@
-import React from 'react';
-import { Text, View, StatusBar, TextInput } from 'react-native';
-import DatePicker from 'react-native-datepicker';
+import React, { Component } from 'react';
+import { Text, View, TextInput } from 'react-native';
 import style from './style';
-
-import {
-  Icon,
-  Spinner,
-  Button,
-  Container,
-  Header,
-  Content,
-  Form,
-  Item,
-  Input,
-  Label,
-  H1
-} from 'native-base';
+import { Container, Button } from 'native-base';
 
 const SignupPageOnePresentation = props => {
-  state = {
-    date: ''
-  };
-
   return (
-    <Container style={style.container} disabled={true}>
-      <StatusBar hidden />
+    <Container style={style.container}>
       <View style={style.form}>
-        <Label style={style.label}>Dados Pessoais</Label>
-        <TextInput placeholder="NOME" style={style.input} />
-        <TextInput placeholder="SOBRENOME" style={style.input} />
-        <DatePicker
-          placeholder="DATA DE NASCIMENTO"
-          date={this.state.date}
-          format="DD-MM-YYYY"
-          minDate="01-01-1753"
-          maxDate="01-01-2030"
-          confirmBtnText="OK"
-          cancelBtnText="Cancelar"
-          style={style.date}
-          onDateChange={date => {
-            this.setState({ date: date });
-          }}
-        />
-        <TextInput placeholder="RG" style={style.input} />
-        <TextInput placeholder="CPF" style={style.input} />
-        <Button style={style.button}>
-          <Text> Avançar </Text>
-        </Button>
-      </View>
-      <View>
-        <Text style={style.return} onPress={props.onSignup}>
-          Voltar
+        <Text style={style.header}>Dados de Contato</Text>
+        <Text style={style.obs}>
+          Vamos entrar em contato através dessas informações, escreva corretamente
         </Text>
+        <TextInput placeholder="E-MAIL" style={style.input} keyboardType="email-address" />
+        <TextInput placeholder="CELULAR(COM DDD)" style={style.input} keyboardType="phone-pad" />
+
+        <View style={style.button}>
+          <Button style={style.button} primary block large>
+            <Text>Avançar</Text>
+          </Button>
+        </View>
       </View>
     </Container>
   );

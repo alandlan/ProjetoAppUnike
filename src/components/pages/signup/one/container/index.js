@@ -1,16 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SignupPageOnePresentation from '../presentation';
 
 const SignupPageOne = props => {
-  state = {
-    date: ''
-  };
-
-  function handleLogout() {
-    props.navigation.navigate('Auth');
-  }
-
-  return <SignupPageOnePresentation onSignup={handleLogout} />;
+  return <SignupPageOnePresentation />;
 };
 
 export { SignupPageOne };

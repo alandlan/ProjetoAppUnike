@@ -7,10 +7,9 @@ const style = StyleSheet.create({
   form: {
     flex: 1,
     margin: 10,
-    justifyContent: 'center',
-    marginHorizontal: 20
+    justifyContent: 'center'
   },
-  header: {
+  label: {
     color: '#000',
     fontSize: 24,
     fontWeight: 'bold',
@@ -18,18 +17,30 @@ const style = StyleSheet.create({
     marginTop: 5
   },
   input: {
-    borderWidth: 0,
+    borderWidth: 0.5,
     borderColor: '#ccc',
+    marginHorizontal: 20,
     marginTop: 10
   },
-  obs: {
-    textAlign: 'center'
+  date: {
+    width: 300,
+    marginHorizontal: 20,
+    marginTop: 10
   },
   button: {
+    fontSize: 28,
+    fontWeight: '400',
+    width: 300,
+    marginHorizontal: 20,
     marginTop: 10,
     backgroundColor: '#FF0000',
     justifyContent: 'center',
-    borderRadius: 10
+    borderRadius: 5
+  },
+  return: {
+    height: 20,
+    margin: 10,
+    textAlign: 'left'
   }
 });
 
