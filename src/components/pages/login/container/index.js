@@ -26,6 +26,10 @@ const LoginPage = props => {
     }
   }
 
+  function handleSign() {
+    props.navigation.navigate('Signup');
+  }
+
   function handleChange(element) {
     return value => {
       setForm({
@@ -41,6 +45,7 @@ const LoginPage = props => {
       value={form}
       onChange={handleChange}
       onLogin={handleLogin}
+      onSignup={handleSign}
     />
   );
 };
