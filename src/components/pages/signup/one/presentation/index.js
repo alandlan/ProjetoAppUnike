@@ -15,10 +15,15 @@ const SignupPageOnePresentation = props => {
         <TextInput placeholder="CELULAR(COM DDD)" style={style.input} keyboardType="phone-pad" />
 
         <View style={style.button}>
-          <Button style={style.button} primary block large>
+          <Button onPress={props.onNext} style={style.button} primary block large>
             <Text>Avançar</Text>
           </Button>
         </View>
+      </View>
+      <View>
+        <Text style={style.return} onPress={props.onSignup}>
+          Voltar
+        </Text>
       </View>
     </Container>
   );

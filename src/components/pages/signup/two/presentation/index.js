@@ -49,7 +49,7 @@ const SignupPageTwoPresentation = props => {
         </Button>
       </View>
       <View>
-        <Text style={style.return} onPress={props.onSignup}>
+        <Text style={style.return} onPress={props.onBack}>
           Voltar
         </Text>
       </View>

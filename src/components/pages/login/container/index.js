@@ -27,7 +27,7 @@ const LoginPage = props => {
   }
 
   function handleSign() {
-    props.navigation.navigate('Signup');
+    props.navigation.navigate('SignupOne');
   }
 
   function handleChange(element) {

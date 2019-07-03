@@ -1,42 +1,38 @@
 import { StyleSheet } from 'react-native';
-import { Left } from 'native-base';
 
 const style = StyleSheet.create({
-  container: {
-    flex: 1
-  },
   form: {
     flex: 1,
-    margin: 10,
-    justifyContent: 'center',
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    justifyContent: 'center'
   },
-  header: {
+  label: {
     color: '#000',
     fontSize: 24,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 5
-  },
-  input: {
-    borderWidth: 0,
-    borderColor: '#ccc',
-    marginTop: 10
-  },
-  obs: {
     textAlign: 'center'
   },
+  info: {
+    fontSize: 16,
+    textAlign: 'center'
+  },
+  checkbox: {
+    justifyContent: 'center'
+  },
   button: {
+    fontSize: 28,
+    fontWeight: '400',
+    width: 300,
+    marginHorizontal: 10,
     marginTop: 10,
     backgroundColor: '#FF0000',
     justifyContent: 'center',
-    borderRadius: 10,
-    height: 50
+    borderRadius: 5
   },
   return: {
     height: 20,
     margin: 10,
-    justifyContent: 'flex-end'
+    textAlign: 'left'
   }
 });
 

@@ -6,15 +6,15 @@ const SignupPageTwo = props => {
     date: ''
   };
 
-  function handleLogout() {
-    props.navigation.navigate('Auth');
-  }
-
-  function handleNext() {
+  function handleBack() {
     props.navigation.navigate('SignupOne');
   }
 
-  return <SignupPageTwoPresentation onSignup={handleLogout} onNext={handleNext} />;
+  function handleNext() {
+    props.navigation.navigate('SignupThree');
+  }
+
+  return <SignupPageTwoPresentation onBack={handleBack} onNext={handleNext} />;
 };
 
 export { SignupPageTwo };

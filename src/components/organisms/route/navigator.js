@@ -5,12 +5,14 @@ import {
   LogoutPage,
   LoadingPage,
   SignupPageOne,
-  SignupPageTwo
+  SignupPageTwo,
+  SignupPageThree
 } from '../../pages';
 
 const AppStackNavigator = createStackNavigator({
   Home: HomePage
 });
+
 const AuthStackNavigator = createStackNavigator({
   Login: {
     screen: LoginPage,
@@ -19,8 +21,8 @@ const AuthStackNavigator = createStackNavigator({
     }
   }
 });
-const SignupStackNavigator = createStackNavigator({
-  SignUp: {
+const SignupOneStackNavigator = createStackNavigator({
+  SignUpOne: {
     screen: SignupPageOne,
     navigationOptions: {
       header: null
@@ -35,14 +37,23 @@ const SignupTwoStackNavigator = createStackNavigator({
     }
   }
 });
+const SignupThreeStackNavigator = createStackNavigator({
+  SignupThree: {
+    screen: SignupPageThree,
+    navigationOptions: {
+      header: null
+    }
+  }
+});
 
 const SwitchNavigator = createSwitchNavigator(
   {
     AuthLoading: LoadingPage,
     App: AppStackNavigator,
     Auth: AuthStackNavigator,
-    Signup: SignupStackNavigator,
-    SignupTwo: SignupTwoStackNavigator
+    SignupOne: SignupOneStackNavigator,
+    SignupTwo: SignupTwoStackNavigator,
+    SignupThree: SignupThreeStackNavigator
   },
   {
     initialRouteName: 'AuthLoading'
