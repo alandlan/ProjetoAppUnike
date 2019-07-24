@@ -54,7 +54,7 @@ const LoginPagePresentation = props => {
         </Form>
       </View>
       <View style={style.signup}>
-        <Text>Signup</Text>
+        <Text onPress={props.onSignup}>Signup</Text>
       </View>
     </Container>
   );
