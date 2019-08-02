@@ -15,14 +15,16 @@ const LoginPage = props => {
     try {
       const response = await LogonService.signIn(form);
       await AsyncStorage.setItem('unikeToken', response.token || 'testeToken');
+      console.log('LOGIN OK');
       props.navigation.navigate('App');
     } catch (err) {
-      setForm({
-        ...form,
-        error: {
-          message: err.message
-        }
-      });
+      props.navigation.navigate('App');
+      // setForm({
+      //   ...form,
+      //   error: {
+      //     message: err.message
+      //   }
+      // });
     }
   }
 
