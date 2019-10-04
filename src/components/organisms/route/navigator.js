@@ -6,7 +6,8 @@ import {
   LoadingPage,
   SignupPageOne,
   SignupPageTwo,
-  SignupPageThree
+  SignupPageThree,
+  InitialPage
 } from '../../pages';
 
 const AppStackNavigator = createStackNavigator({
@@ -48,6 +49,7 @@ const SignupThreeStackNavigator = createStackNavigator({
 
 const SwitchNavigator = createSwitchNavigator(
   {
+    Initial: InitialPage,
     AuthLoading: LoadingPage,
     App: AppStackNavigator,
     Auth: AuthStackNavigator,
@@ -56,7 +58,7 @@ const SwitchNavigator = createSwitchNavigator(
     SignupThree: SignupThreeStackNavigator
   },
   {
-    initialRouteName: 'AuthLoading'
+    initialRouteName: 'Initial'
   }
 );
 export { SwitchNavigator };
