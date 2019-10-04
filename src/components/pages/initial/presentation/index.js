@@ -7,15 +7,15 @@ import style from './style';
 
 const InitialPresentation = props => {
   return (
-    <Container>
+    <Container style={style.container}>
       <Grid>
         <Row style={style.logo}>
           <Image source={logo} />
         </Row>
-        <Row>
+        <Row size={2}>
           <ImageBackground source={banner} style={style.banner} />
         </Row>
-        <Row style={style.message}>
+        <Row style={style.message} size={1}>
           <H1 style={style.messageTitle}>Bem vindo ao app do Profissional</H1>
           <Text style={style.messageText}>
             Receba e selecione os serviços que deseja, criando assim sua própria agenda!
@@ -25,7 +25,6 @@ const InitialPresentation = props => {
           <Button block primary onPress={props.onGoSignIn}>
             <Text>Tenho uma conta</Text>
           </Button>
-
           <Button block bordered onPress={props.onGoSignUp}>
             <Text>Não tenho conta</Text>
           </Button>

@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
-  //   Content: {
-  //     padding: 10
-  //   },
+  container: {
+    margin: 10
+  },
   logo: {
     height: 80,
     justifyContent: 'center'
@@ -13,7 +13,6 @@ const style = StyleSheet.create({
     height: '100%'
   },
   message: {
-    height: 100,
     flexDirection: 'column',
     marginBottom: 10
   },
