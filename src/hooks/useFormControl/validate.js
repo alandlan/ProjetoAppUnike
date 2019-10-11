@@ -1,13 +1,14 @@
+// @flow
 import validator from 'validator';
 
-const validate = (type, value) => {
+const validate = (type: string, value: string | Array<any>) => {
   const valid = {
-    name: validator.isAlphanumeric(value),
-    surname: validator.isAlphanumeric(value),
-    birthday: validator.isAlphanumeric(value),
-    rg: validator.isAlphanumeric(value),
-    cpf: validator.isAlphanumeric(value),
-    email: validator.isEmail(value),
+    name: validator.isAlphanumeric(value.toString()),
+    surname: validator.isAlphanumeric(value.toString()),
+    birthday: validator.isAlphanumeric(value.toString()),
+    rg: validator.isAlphanumeric(value.toString()),
+    cpf: validator.isAlphanumeric(value.toString()),
+    email: validator.isEmail(value.toString()),
     celular: true, // validator.isMobilePhone(value.replace('-', '').replace('+', ''), 'pt-BR'),
     services: true
   };

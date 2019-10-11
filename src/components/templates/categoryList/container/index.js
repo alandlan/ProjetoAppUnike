@@ -3,19 +3,24 @@ import CategoryListPresentation from '../presentation';
 import { Content } from 'native-base';
 import { CategoryListService } from '../../../../services';
 import Item from '.././../../../lib/item';
+import { LoadingControl } from '../../../organisms';
 
 const CategoryContext = React.createContext({});
 const item = new Item();
 
 const CategoryListContainer = props => {
   const [categoryList, setCategoryList] = useState(item.get());
+  const [loading, setLoading] = useState();
 
   async function fetchServiceList() {
     try {
+      setLoading(true);
       const categories = await CategoryListService.getAll();
       item.set(categories.data);
+      setLoading(false);
       setCategoryList(item.get());
     } catch (error) {
+      setLoading(false);
       setCategoryList([]);
     }
   }
@@ -34,7 +39,9 @@ const CategoryListContainer = props => {
 
   return (
     <Content>
-      <CategoryListPresentation data={categoryList} onChange={handleChange} />
+      <LoadingControl loading={loading}>
+        <CategoryListPresentation data={categoryList} onChange={handleChange} />
+      </LoadingControl>
     </Content>
   );
 };
