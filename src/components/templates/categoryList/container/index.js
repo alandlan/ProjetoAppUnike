@@ -28,7 +28,7 @@ const CategoryListContainer = props => {
     return value => {
       item.setActive(itm);
       setCategoryList(item.get());
-      props.onChange(item.get());
+      props.onChange(categoryList);
     };
   }
 

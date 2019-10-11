@@ -10,7 +10,7 @@
     "test:unit": "jest",
     "test": "yarn lint && yarn flow && jest",
     "enable-kvm": "sudo chown reactnative:reactnative -R /dev/kvm",
-    "device": "emulator -avd Nexus_5X_API_28_x86",
+    "device": "npm run enable-kvm && emulator -avd Pixel_2_API_28",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint src",

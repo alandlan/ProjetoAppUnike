@@ -22,23 +22,20 @@ const AuthStackNavigator = createStackNavigator({
     }
   }
 });
-const SignupOneStackNavigator = createStackNavigator({
+
+const SignUpStackNavigator = createStackNavigator({
   SignUpOne: {
     screen: SignupPageOne,
     navigationOptions: {
       header: null
     }
-  }
-});
-const SignupTwoStackNavigator = createStackNavigator({
-  SignupTwo: {
+  },
+  SignUpTwo: {
     screen: SignupPageTwo,
     navigationOptions: {
       header: null
     }
-  }
-});
-const SignupThreeStackNavigator = createStackNavigator({
+  },
   SignupThree: {
     screen: SignupPageThree,
     navigationOptions: {
@@ -53,9 +50,7 @@ const SwitchNavigator = createSwitchNavigator(
     AuthLoading: LoadingPage,
     App: AppStackNavigator,
     Auth: AuthStackNavigator,
-    SignupOne: SignupOneStackNavigator,
-    SignupTwo: SignupTwoStackNavigator,
-    SignupThree: SignupThreeStackNavigator
+    SignUp: SignUpStackNavigator
   },
   {
     initialRouteName: 'Initial'

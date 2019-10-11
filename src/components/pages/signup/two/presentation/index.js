@@ -21,33 +21,32 @@ import { HeaderSignup } from '../../../../templates';
 const SignupPageTwoPresentation = props => {
   return (
     <Container>
-      <HeaderSignup
-        disabled={Object.values(props.valid).includes(false)}
-        onBack={props.onBack}
-        onForward={props.onForward}
-      />
+      <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
       <StatusBar hidden />
       <Content>
         <Form>
-          <Item stackedLabel error={!props.valid.name}>
+          <Item stackedLabel error={!props.data.name.valid}>
             <Label>Nome</Label>
-            <Input value={props.data.name} onChangeText={props.onChangeForm('name')} />
+            <Input value={props.data.name.value} onChangeText={props.onChangeForm('name')} />
           </Item>
-          <Item stackedLabel error={!props.valid.surname}>
+          <Item stackedLabel error={!props.data.surname.valid}>
             <Label>Sobrenome</Label>
-            <Input value={props.data.surname} onChangeText={props.onChangeForm('surname')} />
+            <Input value={props.data.surname.value} onChangeText={props.onChangeForm('surname')} />
           </Item>
-          <Item stackedLabel error={!props.valid.birthday}>
+          <Item stackedLabel error={!props.data.birthday.valid}>
             <Label>Data de nascimento</Label>
-            <Input value={props.data.birthday} onChangeText={props.onChangeForm('birthday')} />
+            <Input
+              value={props.data.birthday.value}
+              onChangeText={props.onChangeForm('birthday')}
+            />
           </Item>
-          <Item stackedLabel error={!props.valid.rg}>
+          <Item stackedLabel error={!props.data.rg.valid}>
             <Label>RG</Label>
-            <Input value={props.data.rg} onChangeText={props.onChangeForm('rg')} />
+            <Input value={props.data.rg.value} onChangeText={props.onChangeForm('rg')} />
           </Item>
-          <Item stackedLabel error={!props.valid.cpf}>
+          <Item stackedLabel error={!props.data.cpf.valid}>
             <Label>CPF</Label>
-            <Input value={props.data.cpf} onChangeText={props.onChangeForm('cpf')} />
+            <Input value={props.data.cpf.value} onChangeText={props.onChangeForm('cpf')} />
           </Item>
         </Form>
       </Content>

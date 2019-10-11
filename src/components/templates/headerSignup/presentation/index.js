@@ -11,10 +11,10 @@ const HeaderSignupPresentation = props => {
         </Button>
       </Left>
       <Body>
-        <Title>Dados de contato</Title>
+        <Title>{props.title}</Title>
       </Body>
       <Right>
-        <Button transparent disabled={props.disabled} onPress={props.onForward}>
+        <Button transparent disabled={props.disable} onPress={props.onForward}>
           <Text>AVANÇAR</Text>
         </Button>
       </Right>

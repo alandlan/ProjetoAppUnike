@@ -8,7 +8,8 @@ const validate = (type, value) => {
     rg: validator.isAlphanumeric(value),
     cpf: validator.isAlphanumeric(value),
     email: validator.isEmail(value),
-    celular: true // validator.isMobilePhone(value.replace('-', '').replace('+', ''), 'pt-BR')
+    celular: true, // validator.isMobilePhone(value.replace('-', '').replace('+', ''), 'pt-BR'),
+    services: true
   };
 
   return valid[type];

@@ -3,7 +3,7 @@ import InitialPresentation from '../presentation';
 
 const InitialContainer = props => {
   const onGoSignIn = useCallback(() => props.navigation.navigate('Auth'));
-  const onGoSignUp = useCallback(() => props.navigation.navigate('SignupOne'));
+  const onGoSignUp = useCallback(() => props.navigation.navigate('SignUp'));
 
   return <InitialPresentation onGoSignUp={onGoSignUp} onGoSignIn={onGoSignIn} />;
 };

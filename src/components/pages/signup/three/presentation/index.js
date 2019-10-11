@@ -8,10 +8,9 @@ import { CategoryList } from '../../../../templates';
 const SignupPageThreePresentation = props => {
   return (
     <Container>
-      <HeaderSignup disabled={false} onBack={props.onBack} onForward={props.onForward} />
-
+      <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
       <StatusBar hidden />
-      <CategoryList onChange={props.onChange} />
+      <CategoryList onChange={props.onChange('services')} />
     </Container>
   );
 };

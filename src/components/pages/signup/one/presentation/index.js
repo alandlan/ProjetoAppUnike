@@ -1,44 +1,46 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, StatusBar } from 'react-native';
 import { HeaderSignup } from '../../../../templates';
-import { Container, Form, Item, Label, Input, Content, Button } from 'native-base';
+import {
+  Container,
+  Form,
+  Item,
+  Label,
+  Input,
+  Content,
+  Button,
+  Icon,
+  Text,
+  Header
+} from 'native-base';
 import TextInputMask from 'react-native-text-input-mask';
 
 const SignupPageOnePresentation = props => {
   return (
     <Container>
-      <HeaderSignup
-        disabled={Object.values(props.valid).includes(false)}
-        onBack={props.onBack}
-        onForward={props.onForward}
-      />
-      <StatusBar hidden />
+      <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
       <Content>
         <Text>Vamos entrar em contato através dessas informações, escreva corretamente</Text>
         <Form>
-          <Item stackedLabel error={!props.valid.email}>
+          <Item stackedLabel error={!props.data.email.valid}>
             <Label>E-mail</Label>
             <Input
-              value={props.data.email}
+              value={props.data.email.value}
               onChangeText={props.onChangeForm('email')}
               keyboardType="email-address"
             />
           </Item>
-          <Item stackedLabel error={!props.valid.celular} style={{ alignItems: 'flex-start' }}>
+
+          <Item stackedLabel error={!props.data.celular.valid} style={{ alignItems: 'flex-start' }}>
             <Label>Celular</Label>
-            <TextInputMask
-              value={props.data.celular}
+            <Input
+              value={props.data.celular.value}
               onChangeText={props.onChangeForm('celular')}
-              refInput={ref => {
-                this.input = ref;
-              }}
               keyboardType="phone-pad"
-              mask={'+55-[00]-[00000]-[0000]'}
             />
           </Item>
         </Form>
         <Button onPress={props.onClear}>
-          <Text>Dsdsd</Text>
+          <Text>Clear</Text>
         </Button>
       </Content>
     </Container>
