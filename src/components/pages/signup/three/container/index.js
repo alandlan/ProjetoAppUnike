@@ -12,7 +12,7 @@ const SignupPageThreeContainer = props => {
       data={form}
       onBack={() => back('SignupTwo')}
       onChange={change}
-      onForward={() => forward('SignupFour')}
+      onForward={() => forward('Login')}
       onClear={clean}
     />
   );

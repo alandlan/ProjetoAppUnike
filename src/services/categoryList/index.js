@@ -1,7 +1,7 @@
 import http from '../http';
 
 const CategoryListService = {
-  getAll: () =>
+  get: () =>
     new Promise((resolve, reject) => {
       http
         .get('Categoria/ListarCategoriaComServico')

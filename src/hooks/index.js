@@ -1,2 +1,4 @@
 import useControl from './useControl';
-export { useControl };
+import useFetch from './useFetch';
+
+export { useControl, useFetch };

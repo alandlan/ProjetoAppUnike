@@ -1,49 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import CategoryListPresentation from '../presentation';
-import { Content } from 'native-base';
+import { Content, Text } from 'native-base';
 import { CategoryListService } from '../../../../services';
 import Item from '.././../../../lib/item';
 import { LoadingControl } from '../../../organisms';
+import { useFetch } from '../../../../hooks';
 
 const CategoryContext = React.createContext({});
 const item = new Item();
 
-const CategoryListContainer = props => {
-  const [categoryList, setCategoryList] = useState(item.get());
-  const [loading, setLoading] = useState();
+function dataActive(data) {
+  const dt = data.map(cat => {
+    let services = cat.Servicos;
+    if (services[2]) services[2].active = true;
+    const ids = services.map(service => {
+      if (service.active) return service.Id;
+    });
 
-  async function fetchServiceList() {
-    try {
-      setLoading(true);
-      const categories = await CategoryListService.getAll();
-      item.set(categories.data);
-      setLoading(false);
-      setCategoryList(item.get());
-    } catch (error) {
-      setLoading(false);
-      setCategoryList([]);
-    }
-  }
+    return ids.join('');
+  });
+  return dt;
+}
+
+function activeData(data, state) {
+  const stateItems = dataActive(state);
+  return data.map(item => {
+    return item.Servicos.map(service => {
+      service.active = stateItems.includes(service.Id.toString());
+      return service;
+    });
+  });
+}
+
+function activeItem(state, item) {
+  return state.map(item => {
+    console.log('item', state);
+    return item;
+    // return item.Servicos.map(service => {
+    //   if (service.Id === item.Id) service.active === true;
+    //   return service;
+    // });
+  });
+}
+
+function useServices(initial) {
+  const [value, setValue] = useState(initial);
+  const [{ data = [], loading }] = useFetch('categories');
 
   useEffect(() => {
-    fetchServiceList();
-  }, []);
+    const datas = dataActive(data, value);
+    setValue(datas);
+  }, [data]);
 
-  function handleChange(itm) {
-    return value => {
-      item.setActive(itm);
-      setCategoryList(item.get());
-      props.onChange(categoryList);
-    };
+  function active(item) {
+    setValue(activeItem(value, item));
   }
 
+  return [data, loading, active];
+}
+
+const CategoryListContainer = props => {
+  const [data, loading, active] = useServices(props.data);
+
+  function handleChange(item) {
+    return value => {
+      active(item);
+      // console.log(getActive(), 'Active');
+      // activeItem(item, value);
+      // props.onChange(data);
+    };
+  }
   return (
     <Content>
       <LoadingControl loading={loading}>
-        <CategoryListPresentation data={categoryList} onChange={handleChange} />
+        <CategoryListPresentation data={data} onChange={handleChange} />
       </LoadingControl>
     </Content>
   );
+};
+
+CategoryListContainer.defaultProps = {
+  data: []
 };
 
 export default CategoryListContainer;

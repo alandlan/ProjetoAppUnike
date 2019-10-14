@@ -10,7 +10,8 @@ const SignupPageThreePresentation = props => {
     <Container>
       <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
       <StatusBar hidden />
-      <CategoryList onChange={props.onChange('services')} />
+
+      <CategoryList data={props.data.services.value} onChange={props.onChange('services')} />
     </Container>
   );
 };

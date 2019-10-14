@@ -27,6 +27,10 @@ const defaultValue: Initial = {
   cpf: {
     value: '',
     valid: true
+  },
+  services: {
+    value: [],
+    valid: true
   }
 };
 
