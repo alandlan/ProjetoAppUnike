@@ -32,7 +32,7 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
     "enzyme-to-json": "^3.3.5",
-    "native-base": "^2.12.1",
+    "native-base": "^2.13.8",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-datepicker": "^1.7.2",
