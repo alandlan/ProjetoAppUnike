@@ -26,7 +26,7 @@ const InitialPresentation = props => {
             <Text>Tenho uma conta</Text>
           </Button>
           <Button block bordered onPress={props.onGoSignUp}>
-            <Text>Não tenho conta</Text>
+            <Text>Não tem conta? Criar Conta</Text>
           </Button>
         </Row>
       </Grid>
