@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StatusBar, TextInput } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import TextInputMask from 'react-native-text-input-mask';
 
@@ -22,7 +22,6 @@ const SignupPageTwoPresentation = props => {
   return (
     <Container>
       <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
-      <StatusBar hidden />
       <Content>
         <Form>
           <Item stackedLabel error={!props.data.name.valid}>

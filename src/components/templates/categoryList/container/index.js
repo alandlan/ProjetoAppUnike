@@ -6,22 +6,6 @@ import Item from '.././../../../lib/item';
 import { LoadingControl } from '../../../organisms';
 import { useFetch } from '../../../../hooks';
 
-const CategoryContext = React.createContext({});
-const item = new Item();
-
-function dataActive(data) {
-  const dt = data.map(cat => {
-    let services = cat.Servicos;
-    if (services[2]) services[2].active = true;
-    const ids = services.map(service => {
-      if (service.active) return service.Id;
-    });
-
-    return ids.join('');
-  });
-  return dt;
-}
-
 function activeData(data, state) {
   const stateItems = dataActive(state);
   return data.map(item => {
@@ -32,15 +16,29 @@ function activeData(data, state) {
   });
 }
 
-function activeItem(state, item) {
-  return state.map(item => {
-    console.log('item', state);
-    return item;
-    // return item.Servicos.map(service => {
-    //   if (service.Id === item.Id) service.active === true;
-    //   return service;
+function useValue(initialValue) {
+  const [value, setValue] = useState(initialValue);
+
+  // const getIdsActive = () => {
+  //   const dt = value.map(cat => {
+  //     let services = cat.Servicos;
+  //     const ids = services.map(service => {
+  //       if (service.active) return service.Id;
+  //     });
+
+  //     return ids.join('');
+  //   });
+  //   return dt;
+  // };
+
+  const set = data => {
+    // setValue({
+    //   ...value,
+    //   ...data
     // });
-  });
+  };
+
+  return [value, set];
 }
 
 function useServices(initial) {
@@ -48,15 +46,36 @@ function useServices(initial) {
   const [{ data = [], loading }] = useFetch('categories');
 
   useEffect(() => {
-    const datas = dataActive(data, value);
-    setValue(datas);
+    // const idsActive = [];
+
+    // value.forEach(item => {
+    //   item.Servicos.forEach(service => {
+    //     idsActive.push(service.Id);
+    //   });
+    // });
+
+    setValue(data);
   }, [data]);
 
-  function active(item) {
-    setValue(activeItem(value, item));
-  }
+  const active = (itm, val) => {
+    const activeItems = value.map(item => {
+      const services = item.Servicos.map(service => {
+        // const isId = itm.Id === service.Id;
+        const isId = itm.Id === service.Id;
 
-  return [data, loading, active];
+        if (isId) service.active = isId;
+
+        return service;
+      });
+
+      item.Servicos = services;
+      return item;
+    });
+
+    setValue(activeItems);
+  };
+
+  return [value, loading, active];
 }
 
 const CategoryListContainer = props => {
@@ -64,16 +83,14 @@ const CategoryListContainer = props => {
 
   function handleChange(item) {
     return value => {
-      active(item);
-      // console.log(getActive(), 'Active');
-      // activeItem(item, value);
-      // props.onChange(data);
+      active(item, value);
+      props.onChange(data);
     };
   }
   return (
     <Content>
       <LoadingControl loading={loading}>
-        <CategoryListPresentation data={data} onChange={handleChange} />
+        <CategoryListPresentation data={props.data} onChange={handleChange} />
       </LoadingControl>
     </Content>
   );
