@@ -18,7 +18,7 @@ import {
 } from 'native-base';
 import { HeaderSignup } from '../../../../templates';
 
-const SignupPageTwoPresentation = props => {
+const SignupProfessionalRegisterPresentation = props => {
   return (
     <Container>
       <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
@@ -53,4 +53,4 @@ const SignupPageTwoPresentation = props => {
   );
 };
 
-export default SignupPageTwoPresentation;
+export default SignupProfessionalRegisterPresentation;

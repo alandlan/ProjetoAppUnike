@@ -14,7 +14,7 @@ import {
 } from 'native-base';
 import TextInputMask from 'react-native-text-input-mask';
 
-const SignupPageOnePresentation = props => {
+const SignupContactDataPresentation = props => {
   return (
     <Container>
       <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
@@ -47,4 +47,4 @@ const SignupPageOnePresentation = props => {
   );
 };
 
-export default SignupPageOnePresentation;
+export default SignupContactDataPresentation;

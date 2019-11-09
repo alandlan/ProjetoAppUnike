@@ -1,3 +1,3 @@
-export * from './one';
-export * from './two';
-export * from './three';
+export * from './contactData';
+export * from './professionalRegister';
+export * from './categoriesRegister';

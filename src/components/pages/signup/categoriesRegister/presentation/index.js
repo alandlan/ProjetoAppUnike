@@ -5,7 +5,7 @@ import { HeaderSignup } from '../../../../templates';
 import style from './style';
 import { CategoryList } from '../../../../templates';
 
-const SignupPageThreePresentation = props => {
+const SignupCategoriesPresentation = props => {
   return (
     <Container>
       <HeaderSignup disable={props.disabled} onBack={props.onBack} onForward={props.onForward} />
@@ -15,4 +15,4 @@ const SignupPageThreePresentation = props => {
   );
 };
 
-export default SignupPageThreePresentation;
+export default SignupCategoriesPresentation;

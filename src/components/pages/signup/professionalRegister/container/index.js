@@ -1,20 +1,20 @@
 import React from 'react';
-import SignupPageTwoPresentation from '../presentation';
+import SignupProfessionalRegisterPresentation from '../presentation';
 import { useControl } from '../../../../../hooks';
 
-const SignupPageTwoContainer = props => {
+const SignupProfessionalRegisterContainer = props => {
   const { form, change, back, forward, clean, isValid } = useControl(props);
 
   return (
-    <SignupPageTwoPresentation
+    <SignupProfessionalRegisterPresentation
       valid={isValid}
       onChangeForm={change}
       data={form}
       onBack={() => back('SignupOne')}
-      onForward={() => forward('SignupThree')}
+      onForward={() => forward('SignupCategoriesRegister')}
       onClear={clean}
     />
   );
 };
 
-export default SignupPageTwoContainer;
+export default SignupProfessionalRegisterContainer;

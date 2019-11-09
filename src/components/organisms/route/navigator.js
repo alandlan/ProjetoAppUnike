@@ -4,9 +4,9 @@ import {
   LoginPage,
   LogoutPage,
   LoadingPage,
-  SignupPageOne,
-  SignupPageTwo,
-  SignupPageThree,
+  SignupContactData,
+  SignupCategoriesRegister,
+  SignupProfessionalRegister,
   InitialPage
 } from '../../pages';
 
@@ -24,20 +24,20 @@ const AuthStackNavigator = createStackNavigator({
 });
 
 const SignUpStackNavigator = createStackNavigator({
-  SignUpOne: {
-    screen: SignupPageOne,
+  SignupContactData: {
+    screen: SignupContactData,
     navigationOptions: {
       header: null
     }
   },
-  SignUpTwo: {
-    screen: SignupPageTwo,
+  SignupProfessionalRegister: {
+    screen: SignupProfessionalRegister,
     navigationOptions: {
       header: null
     }
   },
-  SignupThree: {
-    screen: SignupPageThree,
+  SignupCategoriesRegister: {
+    screen: SignupCategoriesRegister,
     navigationOptions: {
       header: null
     }

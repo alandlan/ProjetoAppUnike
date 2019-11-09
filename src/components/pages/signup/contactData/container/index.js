@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import SignupPageOnePresentation from '../presentation';
+import SignupContactDataPresentation from '../presentation';
 import { useControl } from '../../../../../hooks';
 
-const SignupPageOneContainer = props => {
+const SignupContactDataContainer = props => {
   const { form, change, back, forward, clean, isValid } = useControl(props);
 
   return (
-    <SignupPageOnePresentation
+    <SignupContactDataPresentation
       title="Dados de Contato"
       disable={!isValid}
       onChangeForm={change}
       data={form}
       onBack={() => back('Login')}
-      onForward={() => forward('SignUpTwo')}
+      onForward={() => forward('SignupProfessionalRegister')}
       onClear={clean}
     />
   );
 };
 
-export default SignupPageOneContainer;
+export default SignupContactDataContainer;
