@@ -7,6 +7,7 @@ import {
   SignupContactData,
   SignupCategories,
   SignupProfessional,
+  SignupLocalization,
   InitialPage
 } from '../../pages';
 
@@ -38,6 +39,12 @@ const SignUpStackNavigator = createStackNavigator({
   },
   SignupCategories: {
     screen: SignupCategories,
+    navigationOptions: {
+      header: null
+    }
+  },
+  SignupLocalization: {
+    screen: SignupLocalization,
     navigationOptions: {
       header: null
     }

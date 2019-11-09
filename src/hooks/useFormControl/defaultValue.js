@@ -31,6 +31,34 @@ const defaultValue: Initial = {
   services: {
     value: [],
     valid: true
+  },
+  cep: {
+    value: '',
+    valid: true
+  },
+  address: {
+    value: '',
+    valid: true
+  },
+  number: {
+    value: '',
+    valid: true
+  },
+  neighborhood: {
+    value: '',
+    valid: true
+  },
+  complement: {
+    value: '',
+    valid: true
+  },
+  city: {
+    value: '',
+    valid: true
+  },
+  uf: {
+    value: '',
+    valid: true
   }
 };
 

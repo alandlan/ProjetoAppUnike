@@ -10,9 +10,9 @@ const SignupCategoriesContainer = props => {
     <SignupCategoriesPresentation
       valid={isValid}
       data={form}
-      onBack={() => back('SignupTwo')}
+      onBack={() => back('SignupProfessional')}
       onChange={change}
-      onForward={() => forward('Initial')}
+      onForward={() => forward('SignupLocalization')}
       onClear={clean}
     />
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SignupLocalizationPresentation from '../presentation';
 import { useControl } from '../../../../../hooks';
 
-const SignupContactDataContainer = props => {
+const SignupLocalizationContainer = props => {
   const { form, change, back, forward, clean, isValid } = useControl(props);
 
   return (
@@ -18,4 +18,4 @@ const SignupContactDataContainer = props => {
   );
 };
 
-export default SignupContactDataContainer;
+export default SignupLocalizationContainer;

@@ -10,7 +10,14 @@ const validate = (type: string, value: string | Array<any>) => {
     cpf: validator.isAlphanumeric(value.toString()),
     email: validator.isEmail(value.toString()),
     celular: true, // validator.isMobilePhone(value.replace('-', '').replace('+', ''), 'pt-BR'),
-    services: true
+    services: true,
+    cep: true,
+    address: true,
+    number: validator.isNumeric(value.toString()),
+    neighborhood: true,
+    complement: true,
+    city: true,
+    uf: true
   };
 
   return valid[type];
