@@ -1,13 +1,13 @@
 import SignupPageThreePresentation from '../presentation';
 import React from 'react';
-import SignupCategoriesRegisterPresentation from '../presentation';
+import SignupCategoriesPresentation from '../presentation';
 import { useControl } from '../../../../../hooks';
 
-const SignupCategoriesRegisterContainer = props => {
+const SignupCategoriesContainer = props => {
   const { form, change, back, forward, clean, isValid } = useControl(props);
 
   return (
-    <SignupCategoriesRegisterPresentation
+    <SignupCategoriesPresentation
       valid={isValid}
       data={form}
       onBack={() => back('SignupTwo')}
@@ -18,4 +18,4 @@ const SignupCategoriesRegisterContainer = props => {
   );
 };
 
-export default SignupCategoriesRegisterContainer;
+export default SignupCategoriesContainer;

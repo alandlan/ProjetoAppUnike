@@ -1,3 +1,3 @@
 export * from './contactData';
-export * from './professionalRegister';
-export * from './categoriesRegister';
+export * from './professional';
+export * from './categories';

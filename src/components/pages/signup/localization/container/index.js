@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import SignupContactDataPresentation from '../presentation';
+import SignupLocalizationPresentation from '../presentation';
 import { useControl } from '../../../../../hooks';
 
 const SignupContactDataContainer = props => {
   const { form, change, back, forward, clean, isValid } = useControl(props);
 
   return (
-    <SignupContactDataPresentation
-      title="Dados de Contato"
+    <SignupLocalizationPresentation
+      title="Sua localização"
       disable={!isValid}
       onChangeForm={change}
       data={form}
